@@ -1,2 +1,2 @@
 #!/bin/bash 
-ls -aR | find . -name "*.pdf" -type f | sort |rev | cut -d "/" -f 1 | rev | cut -d . -f 1
+find . -name "*.pdf" -type f | sort |rev | cut -d "/" -f 1 | rev | cut -d . -f 1
