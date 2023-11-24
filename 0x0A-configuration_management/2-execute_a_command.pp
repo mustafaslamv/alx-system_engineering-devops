@@ -1,4 +1,4 @@
-# Executing a command using Puppet
+# Executing a command using Puppet.
 
 exec { 'pkill':
   command => 'pkill killmenow',
