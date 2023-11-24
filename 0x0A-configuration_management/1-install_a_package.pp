@@ -5,6 +5,6 @@ package { 'flask':
   provider => 'pip3'
 }
 package { 'Werkzeug':
-  ensure => installed,
+  ensure   => installed,
   provider => 'pip3'
 }
