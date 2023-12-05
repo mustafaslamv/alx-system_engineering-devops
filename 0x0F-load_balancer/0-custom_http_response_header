@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # script that configure the server, adds nead header value
 
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 sudo sed -i '24i\        location /redirect_me {\n            return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n        }' /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html >/dev/null
-sudo sed -i "46i error_page 404 /custom_404.html;" /etc/nginx/sites-available/default
+sudo sed -i '46i error_page 404 /custom_404.html;' /etc/nginx/sites-available/default
 sudo sed -i '41i add_header X-Served-By $host;' /etc/nginx/sites-available/default
 sudo nginx -s reload
